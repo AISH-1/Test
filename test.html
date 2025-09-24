@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dify Chatbot with Inputs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            color: #333;
+        }
+        h1 {
+            color: #1C64F2;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <h1>Welcome to Our Chatbot Test Page</h1>
+        <p>This page demonstrates how to embed a Dify chatbot and pass initial data to it. The chatbot's icon is in the bottom right corner.</p>
+        <p>By using the JavaScript SDK, we can send information like a staff member's ID and the type of input directly to the bot's workflow. This is very useful for pre-populating context or for routing the user to the correct conversation path.</p>
+    </div>
+
+    <script>
+        window.difyChatbotConfig = {
+            token: 'hr2AGCophuuY0VVY', 
+            // ----- IMPORTANT -----
+            // You can define the inputs from the Start node here.
+            // Replace the sample values below with variables from your website
+            // (e.g., from a user session or a profile page).
+            // This allows the chatbot to get context as soon as it loads.
+            inputs: {
+                "Staff_number": "STAFF001", // Example: Get this from the logged-in user's data
+                "Input_type": "chat"        // Example: This could be set to "survey" if the user is on a survey page
+            },
+            // ----- Optional System/User Variables -----
+            systemVariables: {
+                // user_id: 'YOU CAN DEFINE USER ID HERE',
+                // conversation_id: 'YOU CAN DEFINE CONVERSATION ID HERE, IT MUST BE A VALID UUID',
+            },
+            userVariables: {
+                // avatar_url: 'YOU CAN DEFINE USER AVATAR URL HERE',
+                // name: 'YOU CAN DEFINE USER NAME HERE',
+            },
+        }
+    </script>
+    <script
+        src="https://udify.app/embed.min.js"
+        id="hr2AGCophuuY0VVY"
+        defer>
+    </script>
+    <style>
+        #dify-chatbot-bubble-button {
+            background-color: #1C64F2 !important;
+        }
+        #dify-chatbot-bubble-window {
+            width: 24rem !important;
+            height: 40rem !important;
+        }
+    </style>
+    </body>
+</html>
